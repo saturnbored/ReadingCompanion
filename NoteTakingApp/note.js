@@ -34,6 +34,21 @@ function addNewNote(){
     }
 }
 
+function createNote(noteItem){
+    const div = document.createElement('div');
+    div.classList.add('note-item');
+    div.setAttribute('data-id', noteItem.id);
+    div.innerHTML = `
+        <h3>${noteItem.title}</h3>
+        <p>${noteItem.content}</p>
+        <button type = "button" class = "btn delete-note-btn">
+        <span><i class = "fas fa-trash"></i></span>
+        Remove
+        </button>
+    `;
+    noteListDiv.appendChild(div);
+}
+
 function deleteNote(e){
     if(e.target.classList.contains('delete-note-btn')){
         e.target.parentElement.remove();
@@ -44,4 +59,28 @@ function deleteNote(e){
         });
         localStorage.setItem('notes', JSON.stringify(newNotesList));
     }
+}
+
+function validateInput(title, content){
+    if(title.value !== "" && content.value !== ""){
+        return true;
+    } else {
+        if(title.value === "") title.classList.add('warning');
+        if(content.value === "") content.classList.add('warning');
+    }
+    setTimeout(() => {
+        title.classList.remove('warning');
+        content.classList.remove('warning');
+    }, 2000);
+}
+
+function deleteAllNotes(){
+    localStorage.removeItem('notes');
+    let noteList = document.querySelectorAll('.note-item');
+    if(noteList.length > 0){
+        noteList.forEach(item => {
+            noteListDiv.removeChild(item);
+        });
+    }
+    noteID = 1;
 }
