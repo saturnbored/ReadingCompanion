@@ -19,6 +19,19 @@ function getDataFromStorage(){
     return localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : [];
 }
 
+function displayNotes(){
+    let notes = getDataFromStorage();
+    if(notes.length > 0){
+        noteID = notes[notes.length - 1].id;
+        noteID++;
+    } else {
+        noteID = 1;
+    }
+    notes.forEach(item => {
+        createNote(item);
+    });
+}
+
 function addNewNote(){
     const noteTitle = document.getElementById('note-title'),
           noteContent = document.getElementById('note-content');
