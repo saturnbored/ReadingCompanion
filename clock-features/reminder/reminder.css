@@ -13,17 +13,18 @@ input{
     background-color: white;
 }
 button{
-    display: block;
-    margin: 20px auto;
+    /* display: block; */
+    margin: 20px 60px;
     padding: 15px;
-    background-color: orange;
+    color:#ffffff;
+    background-color: rgb(76, 76, 76);;
     border:none;
     font-size: larger;
 }
 button:hover{
     cursor: pointer;
-    background: transparent;
-    color: orange;
+    background-color: black;
+    color:#ffffff;
     border: 2px solid;
 }
 h1{
@@ -47,4 +48,15 @@ h2{
 .reminder-list-item:hover{
     cursor: pointer;
     color: rgba(255, 166, 0, 0.526);
+}
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+.buttons{
+    width: 90%;
+    padding:50px;
+    margin: 10px auto auto 0;
+    display: flex;
+    justify-content: center;
 }
