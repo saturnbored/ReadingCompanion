@@ -38,6 +38,7 @@
     display: flex;
     justify-content: space-around;
 } 
+
 .lables{
     background-color: #1d1d1d;
     width: 90%;
@@ -62,4 +63,9 @@ a, a:visited, a:hover, a:active {
     color: inherit;
     text-decoration: none;
   }
-  
+  button:hover{
+    cursor: pointer;
+    background-color: black;
+    color:#ffffff;
+    border: 2px solid;
+}
